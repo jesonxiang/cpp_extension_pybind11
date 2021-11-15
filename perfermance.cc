@@ -1,6 +1,7 @@
 #include <math.h>
 #include <stdio.h>
 #include <time.h>
+#include <thread>
 #include <pybind11/embed.h>
 
 
@@ -31,9 +32,13 @@ double geo_distance(double lon1, double lat1, double lon2, double lat2, int test
     return distance;
 }
 
+void calc_dispath(double lon1, double lat1, double lon2, double lat2, int test_cnt) {
+    std::thread thread(geo_distance, lon1, lat1, lon2, lat2, test_cnt);
+    thread.detach();
+}
 
 PYBIND11_MODULE (libcppex, m) {
-    m.def("geo_distance", &geo_distance, R"pbdoc(
+    m.def("geo_distance", &calc_dispath, R"pbdoc(
         Compute geography distance between two places.
     )pbdoc");
 }
