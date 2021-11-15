@@ -38,7 +38,7 @@ void calc_dispath(double lon1, double lat1, double lon2, double lat2, int test_c
 }
 
 PYBIND11_MODULE (libcppex, m) {
-    m.def("geo_distance", &calc_dispath, R"pbdoc(
+    m.def("geo_distance", &geo_distance, R"pbdoc(
         Compute geography distance between two places.
     )pbdoc");
 }
