@@ -34,7 +34,7 @@ def call_cpp_extension(lon1, lat1, lon2, lat2, test_cnt):
 
 if __name__ == "__main__":
     threads = []
-    test_cnt = 10000000
+    test_cnt = 1000000
     test_type = sys.argv[1]
     thread_cnt = int(sys.argv[2])
     start_time = time.time()

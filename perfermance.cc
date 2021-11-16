@@ -7,7 +7,7 @@
 
 namespace py = pybind11;
 
-#define pi 3.1415926535897932384626433832795
+const double pi = 3.1415926535897932384626433832795;
 
 double rad(double d) {
     return d * pi / 180.0;
